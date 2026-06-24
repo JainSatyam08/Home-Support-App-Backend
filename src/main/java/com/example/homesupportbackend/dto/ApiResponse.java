@@ -1,4 +1,4 @@
-package com.example.homesupportbackend.controller;
+package com.example.homesupportbackend.dto;
 
 
 public class ApiResponse {
