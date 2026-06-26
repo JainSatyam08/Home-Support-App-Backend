@@ -28,8 +28,9 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest loginRequest) {
 
-        return ResponseEntity.ok(userService.loginUser(loginRequest));
+        return ResponseEntity.ok(
+                new ApiResponse(userService.loginUser(loginRequest)));
     }
 }

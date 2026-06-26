@@ -44,7 +44,7 @@ public class UserService {
     public String loginUser(LoginRequest loginRequest){
         Optional<User> user = userRepository.findByEmail(loginRequest.getEmail());
         if(user.isEmpty()){
-            throw new RuntimeException("User not found");
+            throw new RuntimeException("User not found. Please sign up first.");
         }
         User existingUser = user.get();
 
@@ -52,7 +52,7 @@ public class UserService {
                 loginRequest.getPassword(),
                 existingUser.getPasswordHash()
         )){
-            throw new RuntimeException("Invalid Password");
+            throw new RuntimeException("Incorrect Password");
         }
 
         return "Login Successful";
