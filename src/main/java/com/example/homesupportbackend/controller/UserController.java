@@ -2,13 +2,13 @@ package com.example.homesupportbackend.controller;
 
 import com.example.homesupportbackend.dto.ApiResponse;
 import com.example.homesupportbackend.dto.LoginRequest;
+import com.example.homesupportbackend.dto.LoginResponse;
 import com.example.homesupportbackend.entity.User;
 import com.example.homesupportbackend.service.UserService;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
 
 @RestController
 @RequestMapping("/api/users")
@@ -28,9 +28,15 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
 
+        return ResponseEntity.ok(userService.loginUser(loginRequest));
+    }
+
+    @GetMapping("/profile")
+    public ResponseEntity<String> profile(Authentication authentication) {
         return ResponseEntity.ok(
-                new ApiResponse(userService.loginUser(loginRequest)));
+                "Logged in as: " + authentication.getName()
+        );
     }
 }

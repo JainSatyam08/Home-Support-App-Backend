@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name="user_id")
     private Integer userId;
 
@@ -16,6 +17,16 @@ public class User {
     private String fullName;
     @Column(name="email")
     private String email;
+    @Column(name="email_verified")
+    private Boolean emailVerified;
+    @Column(name="phone")
+    private String phone;
+    @Column(name="phone_verified")
+    private Boolean phoneVerified;
+    @Column(name="password_hash")
+    private String passwordHash;
+    @Column(name="created_at")
+    private LocalDateTime createdAt;
 
     public Boolean getEmailVerified() {
         return emailVerified;
@@ -73,10 +84,7 @@ public class User {
         this.email = email;
     }
 
-    @Column(name="email_verified")
-    private Boolean emailVerified;
-    @Column(name="phone")
-    private String phone;
+
 
     public Integer getUserId() {
         return userId;
@@ -86,10 +94,5 @@ public class User {
         this.userId = userId;
     }
 
-    @Column(name="phone_verified")
-    private Boolean phoneVerified;
-    @Column(name="password_hash")
-    private String passwordHash;
-    @Column(name="created_at")
-    private LocalDateTime createdAt;
+
 }

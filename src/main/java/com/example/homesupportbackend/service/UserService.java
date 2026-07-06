@@ -1,8 +1,10 @@
 package com.example.homesupportbackend.service;
 
 import com.example.homesupportbackend.dto.LoginRequest;
+import com.example.homesupportbackend.dto.LoginResponse;
 import com.example.homesupportbackend.entity.User;
 import com.example.homesupportbackend.repository.UserRepository;
+import com.example.homesupportbackend.security.JwtUtil;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +14,16 @@ import java.util.Optional;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final JwtUtil jwtUtil;
     private final BCryptPasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
 
-    public UserService(UserRepository userRepository){
+    public UserService(UserRepository userRepository,JwtUtil jwtUtil){
+
         this.userRepository= userRepository;
+        this.jwtUtil=jwtUtil;
     }
+
+
     public void registerUser(User user){
 
         if(userRepository.existsByEmail(user.getEmail())){ //getEmail function written in User.java
@@ -36,12 +43,10 @@ public class UserService {
         user.setCreatedAt(LocalDateTime.now());
 
         userRepository.save(user);
-
-        userRepository.save(user);
-
     }
 
-    public String loginUser(LoginRequest loginRequest){
+
+    public LoginResponse loginUser(LoginRequest loginRequest){
         Optional<User> user = userRepository.findByEmail(loginRequest.getEmail());
         if(user.isEmpty()){
             throw new RuntimeException("User not found. Please sign up first.");
@@ -54,7 +59,7 @@ public class UserService {
         )){
             throw new RuntimeException("Incorrect Password");
         }
-
-        return "Login Successful";
+        String token= jwtUtil.generateToken(existingUser.getEmail());
+        return new LoginResponse(token);
     }
 }
