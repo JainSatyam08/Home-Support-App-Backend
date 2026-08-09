@@ -53,6 +53,8 @@ public class RequestDetailServiceImpl implements RequestDetailService {
         dto.setCustomerForName(booking.getCFName());
         dto.setProblemType(booking.getProblemType());
         dto.setStatusUpdatedAt(bookingStatus.getStatusUpdateAt());
+        dto.setLongitude(booking.getLongitude());
+        dto.setLatitude(booking.getLatitude());
 
         return dto;
 
