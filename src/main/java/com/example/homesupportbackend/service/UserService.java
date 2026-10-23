@@ -24,6 +24,7 @@ public class UserService {
     }
 
 
+
     public void registerUser(User user){
 
         if(userRepository.existsByEmail(user.getEmail())){ //getEmail function written in User.java

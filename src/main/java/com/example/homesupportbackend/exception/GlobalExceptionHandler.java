@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ApiResponse> handleRuntimeException(RuntimeException ex){
+        ex.printStackTrace();
         ApiResponse response = new ApiResponse(ex.getMessage());
 
         return ResponseEntity
