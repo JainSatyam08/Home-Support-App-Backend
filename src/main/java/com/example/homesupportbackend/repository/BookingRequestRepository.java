@@ -32,7 +32,7 @@ public interface BookingRequestRepository extends JpaRepository<BookingRequest,S
                 join booking_status bs 
                     on br.booking_id = bs.booking_id
             where br.created_at >= :startDate
-            and br.created_at < :endDate
+            and br.created_at <= :endDate
     """,nativeQuery = true)
     DashBoardStatsProjections getDashBoardStats(
             @Param("startDate")LocalDate startDate,
