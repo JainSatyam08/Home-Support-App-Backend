@@ -19,6 +19,58 @@ public class BookingRequestDTO {
     private Double longitude;
     private String completeAddress;
 
+    private String hostel;
+    private String room;
+    private String block;
+
+    public LocalDate getPrefDate() {
+        return prefDate;
+    }
+
+    public void setPrefDate(LocalDate prefDate) {
+        this.prefDate = prefDate;
+    }
+
+    public String getPrefSlot() {
+        return prefSlot;
+    }
+
+    public void setPrefSlot(String prefSlot) {
+        this.prefSlot = prefSlot;
+    }
+
+    public String getCompleteAddress() {
+        return completeAddress;
+    }
+
+    public void setCompleteAddress(String completeAddress) {
+        this.completeAddress = completeAddress;
+    }
+
+    public String getHostel() {
+        return hostel;
+    }
+
+    public void setHostel(String hostel) {
+        this.hostel = hostel;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
     public String getServiceType(){return serviceType;}
     public void setServiceType(String serviceType){
         this.serviceType = serviceType;

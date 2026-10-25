@@ -3,6 +3,7 @@ package com.example.homesupportbackend.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 @Entity
 @Table(name="booking_request")
@@ -51,6 +52,21 @@ public class BookingRequest {
 
     @Column(name = "book_date", nullable = false)
     private LocalDate bookingDate;
+
+    @Column(name="block_name")
+    private String block;
+
+    @Column(name="room_number")
+    private String room;
+
+    @Column(name="hostel_name")
+    private String hostel;
+
+    @Column(name = "created_at", insertable = false, updatable = false)
+    private OffsetDateTime createdAt;
+
+
+
 
     public BookingRequest(){}
 
@@ -142,7 +158,43 @@ public class BookingRequest {
     }
 
 
+    public String getcFName() {
+        return cFName;
+    }
 
+    public void setcFName(String cFName) {
+        this.cFName = cFName;
+    }
 
+    public String getcFCno() {
+        return cFCno;
+    }
 
+    public void setcFCno(String cFCno) {
+        this.cFCno = cFCno;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public String getHostel() {
+        return hostel;
+    }
+
+    public void setHostel(String hostel) {
+        this.hostel = hostel;
+    }
 }

@@ -96,6 +96,9 @@ public class BookingServiceImpl implements BookingService {
         bookingRequest.setProblemDesc(bookingRequestDTO.getProblemDesc());
         bookingRequest.setProblemType(bookingRequestDTO.getProblemType());
         bookingRequest.setAddressComplete(bookingRequestDTO.getAddressComplete());
+        bookingRequest.setHostel(bookingRequestDTO.getHostel());
+        bookingRequest.setBlock(bookingRequestDTO.getBlock());
+        bookingRequest.setRoom(bookingRequestDTO.getRoom());
         String bookingId = generateBookingId(bookingRequestDTO.getServiceType());
 
         bookingRequest.setBookingId(bookingId);

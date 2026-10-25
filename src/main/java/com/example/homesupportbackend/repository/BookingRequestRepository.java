@@ -1,5 +1,6 @@
 package com.example.homesupportbackend.repository;
 
+import com.example.homesupportbackend.authority_module.dto.DashBoardRecentServiceResponseDTO;
 import com.example.homesupportbackend.authority_module.interfacial.DashBoardStatsProjections;
 import com.example.homesupportbackend.authority_module.interfacial.DashBoardStatsServiceProjections;
 import com.example.homesupportbackend.entity.BookingRequest;
@@ -49,5 +50,25 @@ public interface BookingRequestRepository extends JpaRepository<BookingRequest,S
     DashBoardStatsServiceProjections getDashBoardStatsService(
 
     );
+
+    @Query("""
+    SELECT 
+        b.bookingId,
+        b.problemDesc,
+        b.serviceType,
+        b.block,
+        b.room,
+        b.createdAt
+    FROM BookingRequest b
+    WHERE b.bookingDate >= :startDate
+      AND b.bookingDate < :endDate
+    ORDER BY b.bookingDate DESC
+""")
+    List<Object[]> getRecentService(
+            @Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate
+    );
+
+
 
 }

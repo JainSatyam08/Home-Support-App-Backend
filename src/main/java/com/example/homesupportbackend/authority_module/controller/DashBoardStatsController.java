@@ -1,6 +1,7 @@
 package com.example.homesupportbackend.authority_module.controller;
 
 
+import com.example.homesupportbackend.authority_module.dto.DashBoardRecentServiceResponseDTO;
 import com.example.homesupportbackend.authority_module.dto.DashBoardStatsResponseDTO;
 import com.example.homesupportbackend.authority_module.dto.DashBoardStatsServiceResponseDTO;
 import com.example.homesupportbackend.authority_module.service.DashBoardStatsService;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("auth/employee")
@@ -34,6 +37,14 @@ public class DashBoardStatsController {
     ){
         String user_id=authentication.getName();
         return ResponseEntity.ok(dashBoardStatsService.dashBoardStatsService(user_id));
+
+    }
+    @GetMapping("/recentservice")
+    public ResponseEntity<List<DashBoardRecentServiceResponseDTO>> getDashBoardRecentService(
+            Authentication authentication
+    ){
+        String user_id=authentication.getName();
+        return ResponseEntity.ok(dashBoardStatsService.dashBoardRecentService(user_id));
 
     }
 }
