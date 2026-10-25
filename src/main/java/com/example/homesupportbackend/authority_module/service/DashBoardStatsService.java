@@ -81,6 +81,10 @@ public class DashBoardStatsService {
         LocalDate endDate1= LocalDate.now();
         LocalDate startDate1=endDate1.minusDays(days);
 
+
+        System.out.println(endDate1);
+        System.out.println(startDate1);
+
         List<Object[]> completeList=bookingRequestRepository.getRecentService(startDate1,endDate1);
 
 

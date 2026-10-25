@@ -61,7 +61,7 @@ public interface BookingRequestRepository extends JpaRepository<BookingRequest,S
         b.createdAt
     FROM BookingRequest b
     WHERE b.bookingDate >= :startDate
-      AND b.bookingDate < :endDate
+      AND b.bookingDate <= :endDate
     ORDER BY b.bookingDate DESC
 """)
     List<Object[]> getRecentService(
