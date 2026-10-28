@@ -32,8 +32,6 @@ public class BookingStatus {
     @Column(name = "s_type", nullable = false)
     private String serviceType;
 
-    @Column(name = "address_comp", columnDefinition = "TEXT", nullable = false)
-    private String addressComplete;
 
     @Column(name="status",nullable = false,length=10)
     private String status = "Pending";
@@ -45,6 +43,15 @@ public class BookingStatus {
 
     @Column(name = "asign_p_id")
     private Long assignedServicePartnerId;
+
+    @Column(name="block_name")
+    private String block;
+
+    @Column(name="room_number")
+    private String room;
+
+    @Column(name="hostel_name")
+    private String hostel;
 
     public BookingStatus() {
     }
@@ -82,9 +89,52 @@ public class BookingStatus {
         this.serviceType = serviceType;
     }
 
-    public String getAddressComplete(){return addressComplete;}
-    public void setAddressComplete (String addressComplete){
-        this.addressComplete = addressComplete;
+    public BookingRequest getBookingId() {
+        return bookingId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public String getHostel() {
+        return hostel;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setHostel(String hostel) {
+        this.hostel = hostel;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public void setBookingId(BookingRequest bookingId) {
+        this.bookingId = bookingId;
     }
 
     public String getStatus() {

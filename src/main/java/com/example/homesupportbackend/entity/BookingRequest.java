@@ -21,14 +21,11 @@ public class BookingRequest {
     @Column(name="c_name",nullable = false)
     private String cname;
 
-    @Column(name="c_f_name",nullable = false)
-    private String cFName ;
 
     @Column(name="cno",nullable = false)
     private String cno ;
 
-    @Column(name="c_f_cno",nullable = false)
-    private String cFCno;
+
 
     @Column(name="email_id",nullable = false)
     private String emailId;
@@ -91,15 +88,9 @@ public class BookingRequest {
         this.cno = cno;
     }
 
-    public String getCFName(){return cFName;}
-    public void setCFName(String cFName){
-        this.cFName = cFName;
-    }
 
-    public String getCFCno(){return cFCno;}
-    public void setCFCno(String cFCno){
-        this.cFCno = cFCno;
-    }
+
+
 
     public String getEmailId(){return emailId;}
     public void setEmailId (String emailId){
@@ -158,21 +149,9 @@ public class BookingRequest {
     }
 
 
-    public String getcFName() {
-        return cFName;
-    }
 
-    public void setcFName(String cFName) {
-        this.cFName = cFName;
-    }
 
-    public String getcFCno() {
-        return cFCno;
-    }
 
-    public void setcFCno(String cFCno) {
-        this.cFCno = cFCno;
-    }
 
     public String getBlock() {
         return block;

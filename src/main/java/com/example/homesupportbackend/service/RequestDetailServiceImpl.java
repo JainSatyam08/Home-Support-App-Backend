@@ -49,8 +49,7 @@ public class RequestDetailServiceImpl implements RequestDetailService {
         dto.setBookingDate(booking.getBookingDate());
         dto.setPrefDate(booking.getPreferredDate());
         dto.setPrefSlot(booking.getPreferredSlot());
-        dto.setCustomerForCno(booking.getCFCno());
-        dto.setCustomerForName(booking.getCFName());
+
         dto.setProblemType(booking.getProblemType());
         dto.setStatusUpdatedAt(bookingStatus.getStatusUpdateAt());
         dto.setLongitude(booking.getLongitude());

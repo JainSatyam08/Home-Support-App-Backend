@@ -113,7 +113,9 @@ public class BookingServiceImpl implements BookingService {
 
         bookingStatus.setCname(savedBooking.getCname());
         bookingStatus.setCno(savedBooking.getCno());
-        bookingStatus.setAddressComplete(savedBooking.getAddressComplete());
+        bookingStatus.setRoom(savedBooking.getRoom());
+        bookingStatus.setBlock(savedBooking.getBlock());
+        bookingStatus.setHostel(savedBooking.getHostel());
         bookingStatus.setStatus("Pending");
         BookingStatus savedStatus =
                 bookingStatusRepository.save(bookingStatus);

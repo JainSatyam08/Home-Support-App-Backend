@@ -15,7 +15,6 @@ public class BookingRequestDTO {
     private String prefSlot;
 
 
-
     private String hostel;
     private String room;
     private String block;
