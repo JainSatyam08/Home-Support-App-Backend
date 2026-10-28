@@ -86,16 +86,14 @@ public class BookingServiceImpl implements BookingService {
         bookingRequest.setCname(user.getFullName());
         bookingRequest.setCno(user.getPhone());
         bookingRequest.setEmailId(user.getEmail());
-        bookingRequest.setCFName(user.getFullName());
-        bookingRequest.setCFCno(user.getPhone());
-        bookingRequest.setLatitude(bookingRequestDTO.getLatitude());
-        bookingRequest.setLongitude(bookingRequestDTO.getLongitude());
+
+
         bookingRequest.setServiceType(bookingRequestDTO.getServiceType());
         bookingRequest.setPreferredDate(bookingRequestDTO.getPreferredDate());
         bookingRequest.setPreferredSlot(bookingRequestDTO.getPreferredSlot());
         bookingRequest.setProblemDesc(bookingRequestDTO.getProblemDesc());
         bookingRequest.setProblemType(bookingRequestDTO.getProblemType());
-        bookingRequest.setAddressComplete(bookingRequestDTO.getAddressComplete());
+
         bookingRequest.setHostel(bookingRequestDTO.getHostel());
         bookingRequest.setBlock(bookingRequestDTO.getBlock());
         bookingRequest.setRoom(bookingRequestDTO.getRoom());
@@ -122,7 +120,7 @@ public class BookingServiceImpl implements BookingService {
 
         BookingResponseDTO response=new BookingResponseDTO();
         response.setBookingId(savedBooking.getBookingId());
-        response.setMessage("User Register Successfully");
+        response.setMessage("Complaint Successfully Registered");
         response.setCname(savedBooking.getCname());
         response.setTrackId(savedStatus.getTrackId());
         response.setServiceType(savedBooking.getServiceType());

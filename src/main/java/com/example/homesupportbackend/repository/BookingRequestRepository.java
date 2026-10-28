@@ -69,6 +69,16 @@ public interface BookingRequestRepository extends JpaRepository<BookingRequest,S
             @Param("endDate") LocalDate endDate
     );
 
+    @Query(value = """
+    SELECT
+         br.booking_id,br.problem_desc,br.room_number,br.s_type,br.hostel_name,
+        br.created_at,bs.status    FROM booking_request br
+    LEFT JOIN booking_status bs
+        ON br.booking_id = bs.booking_id
+    ORDER BY br.created_at DESC
+    """, nativeQuery = true)
+    List<Object[]> getAllRequests();
+
 
 
 }

@@ -14,4 +14,6 @@ public interface BookingStatusRepository extends JpaRepository<BookingStatus,Lon
     List<BookingStatus> findByUserOrderByStatusUpdateAtDesc(User user);
 
     Optional<BookingStatus> findByBookingId(BookingRequest bookingRequest);
+
+
 }

@@ -14,10 +14,7 @@ public class BookingRequestDTO {
 
     private String prefSlot;
 
-    private Double latitude;
 
-    private Double longitude;
-    private String completeAddress;
 
     private String hostel;
     private String room;
@@ -39,13 +36,6 @@ public class BookingRequestDTO {
         this.prefSlot = prefSlot;
     }
 
-    public String getCompleteAddress() {
-        return completeAddress;
-    }
-
-    public void setCompleteAddress(String completeAddress) {
-        this.completeAddress = completeAddress;
-    }
 
     public String getHostel() {
         return hostel;
@@ -99,23 +89,6 @@ public class BookingRequestDTO {
     }
 
 
-
-    public Double getLatitude(){return latitude;}
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Double getLongitude() {return longitude;}
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getAddressComplete(){return completeAddress;}
-    public void setAddressComplete(String completeAddress){
-        this.completeAddress=completeAddress;
-    }
 
 
 }
