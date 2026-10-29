@@ -25,7 +25,8 @@ public class SecurityConfig {
                                 "/api/users/signup",
                                 "/api/users/login",
                                 "/auth/employee/signup",
-                                "/auth/employee/login"
+                                "/auth/employee/login",
+                                "/auth/employee/health"
 
                         ).permitAll()
                         .anyRequest().authenticated()
